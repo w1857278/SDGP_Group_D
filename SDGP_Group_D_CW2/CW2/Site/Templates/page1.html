@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Device Booking App</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #ffffff;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        .logo {
+            font-weight: bold;
+            font-size: 20px;
+        }
+        .links {
+            display: flex;
+            gap: 20px;
+        }
+
+        .content {
+            display: flex;
+            justify-content: center;
+            height: calc(100vh - 60px);
+            background: linear-gradient(to top, #03083D, #627388);
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            text-align: center;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            width: 350px;
+            border-radius: 10px;
+        }
+
+        .image-container {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 20px;
+        }
+
+        .image-rectangle {
+            width: 150px;
+            height: 200px;
+            background-color: #728699;
+            overflow: hidden;
+        }
+
+        .image-rectangle img {
+            width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div style="display: flex; align-items: center;">
+        <div class="circle" style="background-color: lightgrey; width: 50px; height: 50px; border-radius: 50%; margin-right: 15px;">
+            <span style="display: flex; justify-content: center; align-items: center; height: 100%; color: black; font-weight: bold;">Logo</span>
+        </div>
+        <div class="rectangle" style="background-color: lightgrey; width: 120px; height: 20px; border-radius: 5px;">
+            <span style="display: flex; justify-content: center; align-items: center; height: 100%; color: black; font-weight: bold;">Site name</span>
+        </div>
+    </div>
+        <div class="links">
+            <a href="#" style="color: black; font-weight: bold; text-decoration: none; font-size: 18px;">Home</a>
+            <a href="#" style="color: black; font-weight: bold; text-decoration: none; font-size: 18px;">Dashboard</a>
+            <a href="#" style="color: black; font-weight: bold; text-decoration: none; font-size: 18px;">Inventory</a>
+            <a href="#" style="color: black; font-weight: bold; text-decoration: none; font-size: 18px;">Booking</a>
+        </div>
+    </div>
+    <div class="content">
+        <div class="card">
+            <br>
+            <h2>I would like to...</h2>
+            <div class="image-container">
+                <div class="image-rectangle">
+                    <img src="../static/style/images/pc_pic.png" alt="Image 1" style="width: 100px; height: auto; margin-top: 30px;">
+                    <p style="color: white; text-align: center; font-weight: bold;">Book a Device</p>
+                </div>
+                <div class="image-rectangle">
+                    <img src="../static/style/images/return_device.png" alt="Image 1" style="width: 90px; height: auto; margin-top: 30px;">
+                    <p style="color: white; text-align: center; font-weight: bold;">Return a Device</p>
+                </div>
+            </div>
+            <button style="background-color: #728699; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 80px;">Return to Homepage</button>
+        </div>
+    </div>
+</body>
+</html>

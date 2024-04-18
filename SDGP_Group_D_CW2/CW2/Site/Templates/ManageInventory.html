@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin - Manage Inventory</title>
+  <link rel="stylesheet" href="../static/style/bootstrap/bootstrap-grid.css">
+  <link rel="stylesheet" href="../static/style/bootstrap/bootstrap-reboot.css">
+  <link rel="stylesheet" href="../static/static/bootstrap/bootstrap.css">
+  <link rel="stylesheet" href="../static/style/style.css "> 
+	<style>
+		#header {
+			padding-top: 20px;
+			width: 100%;
+			height: 30px;
+			text-align:center;
+			position: absolute;
+			top: 0;
+		}
+		.navigation a:hover{
+			transition-duration: 0.4s;
+			text-decoration:bold;
+			font-size: 18px;
+			color:rgb(0, 153, 255);
+		}
+		.navigation {
+			width: 100%;
+			margin-left:100px;
+		}
+		.navigation li {
+			display: inline;
+			font-weight: bold;
+			padding-right: 150px;
+			overflow: hidden;
+		}
+		.navigation a {
+			position: absolute;
+			font-size: 1.1em;
+			color: rgb(255, 255, 255);
+			text-decoration: none;
+			padding-left: 15px;
+			padding-right:15px;
+			border-radius: 10px;
+			text-align: center;
+			margin-right:10px;
+			width:120px;
+		}
+		.logo {
+			top: 0;
+			left: 0;
+			position: absolute;
+			margin-left: 15px;
+			margin-top: 10px;
+			color: white;
+		}
+		#SignUpBtn{
+			border: 2px solid white;
+			margin-left: 400px;
+			padding: 7px;
+			margin-top:-7px;
+		}
+
+		#SignUpBtn:hover{
+			color: white;
+			font-size:17px;
+			background-color: #0079be;
+			border: 2px solid #0079be;
+		}
+	</style>
+</head>
+  
+<body style="font-size: 15px">
+  <div id = "header">
+	<!--Uni of Westminster Logo-->
+	<div class = "logo">
+		<img src = "../static/style/images/UOW_Logo.png" alt="logo" width = "220" height = "50"></a>
+	</div>
+	<!-- Navigation bar -->
+	<nav>
+		<ul class = "navigation">
+			<li><a href = "{% url 'index' %}">Home</a></li>
+			<li><a href = " ">Dashboard</a></li>
+			<li><a href = " ">Manage</a></li>
+			<li><a href = " ">Inventory</a></li>			
+			<li><a href = " ">Booking</a></li>
+			<li><a href = " " id="SignUpBtn">Sign Up</a></li>
+		</ul>
+	</nav>
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div class="Main_Div">
+	<div id="blur-background"></div>
+	<!-- Remove Device warning message -->
+	<div id="RemoveDeviceMenu" class="Menu">
+		<br>
+		<h3>Are you sure you want to remove this item?</h3>
+		<button class="closeBtn">X</button>
+		<button id="ConfirmDeleteButton">Yes, Im sure.</button>
+	</div>
+	<!-- Add Device Menu -->
+	<div id="AddDeviceMenu" class="Menu">
+		<h2>Add Device</h2>
+		<!-- Form for adding an item  - doesnt work currently -->
+		<form method="POST">
+			{% csrf_token %}
+			{{ form.as_p }}
+			<br>
+			<button type="submit">Add Device</button>
+		</form>
+		<button class="closeBtn">X</button>
+	</div>
+	<!-- Table Buttons (Search and Filter) -->
+	<div style="width:65%" id="InvTable">
+		<div class="TableButtons">
+			<form id="form">
+				<!-- Search Bar -->
+				<input type="search" id="SearchInput" onkeyup="SearchFunction()" placeholder="Search for device name...">
+				<!-- Filter Button -->
+				<button id="FilterButton">Filter <img class="FilterImage" src="../static/style/images/filter.png" alt="FilterImage"></button>
+				<div id="FilterOptions">
+					<input type="checkbox" id="AlphabeticalFilter" name="AlphabeticalFilter" value="AlphabeticalFilter">
+					<label for="AlphabeticalFilter" style="font-weight: bold">Alphabetically</label><br>
+					<input type="checkbox" id="QuantityFilter" name="QuantityFilter" value="QuantityFilter">
+					<label for="QuantityFilter" style="font-weight: bold">By Quantity</label><br>
+				</div>
+			</form>
+		</div>
+		<!-- Inventory Table -->
+		<div style="overflow:auto; height: 640px; margin-top: 3px">
+			<table style="width:95%; table-layout: fixed" id="InventoryTable">
+				<!-- Table Headers-->
+				<tr style="background-color: #0079be;">
+			  		<th style="width: 30%">Device Name</th>
+			  		<th style="width: 10%">Quantity</th>
+			  		<th style="width: 15%">Device Type</th>
+			  		<th style="width: 10%">Audit</th>
+			  		<th style="width: 15%">Location</th>
+			  		<th style="width: 20%">Status</th>
+				</tr>
+				{% for device in devices %}
+				<tr id="row-{{ device.id }}" onclick=displayDeviceInfo>
+					<td>{{ device.deviceName }}</td>
+					<td>{{ device.deviceQuantity }}</td>
+					<td>{{ device.deviceType }}</td>
+					<td>{{ device.deviceAudit }}</td>
+					<td>{{ device.deviceLocation }}</td>
+					<td>{{ device.deviceStatus }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+		<br>
+		<!-- Generate Report Button -->
+		<button style="margin-left: 370px" class="button GenerateReport">
+			Generate Report
+		</button>
+		<!-- Equipment Count Button -->
+		<button class="button EquipmentCount">
+			Get Equipment Count
+		</button>
+	</div>
+	<!-- Device Info Display -->
+	<div style="width:30%" id="DeviceInfo">
+		<h2>Device Name:</h2>
+		<p style="padding-left:100px">Device Name Example</p>
+		<h2>Device Info: </h2>
+		<div style="width:80%" id="InfoBox"  class="disabled">
+			<!-- Display information of item clicked on -->
+			
+		</div>
+		<br>
+		<!-- Buttons for editing info + adding/removing devices -->
+		<button id="EditInfoButton">Edit Device Information</button>
+		<br>
+		<button id="RemoveDeviceButton">Remove Device</button>
+		<br>
+		<button id="AddDeviceButton">Add new Device</button>
+	</div>
+  </div>
+  <br>
+
+ <script>
+	const openAddDevice = document.getElementById('AddDeviceButton');
+	const AddDeviceMenu = document.getElementById('AddDeviceMenu');
+	const openRemoveDevice = document.getElementById('RemoveDeviceButton');
+	const RemoveDeviceMenu = document.getElementById('RemoveDeviceMenu');
+	const blurBackground = document.getElementById('blur-background');
+	const closeBtn = document.getElementsByClassName('closeBtn');
+	const CfmDelBtn = document.getElementById('ConfirmDeleteButton');
+
+	//Function for close button
+	function closeMenus(){
+		RemoveDeviceMenu.style.display = 'none';
+		AddDeviceMenu.style.display = 'none';
+		blurBackground.style.display = 'none';
+	}
+
+	openAddDevice.addEventListener('click', () => {
+		blurBackground.style.display = 'block';
+  		AddDeviceMenu.style.display = 'block';
+	});
+
+	openRemoveDevice.addEventListener('click', () => {
+		blurBackground.style.display = 'block';
+  		RemoveDeviceMenu.style.display = 'block';
+	});
+
+	//Close button function on menus
+	for (let i = 0; i < closeBtn.length; i++) {
+  		closeBtn[i].addEventListener('click', () => {
+    		closeMenus();
+  		});
+	}
+
+	//Confirm Delete Device functionality
+	CfmDelBtn.addEventListener('click', () => {
+    	closeMenus();
+		//Code to delete from database
+	});
+
+	//Functionality for search bar
+    function SearchFunction() {
+  		// Get the input value and convert it to lowercase
+  		var input = document.getElementById("SearchInput");
+  		var filter = input.value.toLowerCase();
+  		// Get the table and table rows
+  		var table = document.getElementById("InventoryTable");
+  		var rows = table.getElementsByTagName("tr");
+  		// Loop through all table rows, hide those that don't match the search query
+  		for (var i = 0; i < rows.length; i++) {
+    		var DeviceName = rows[i].getElementsByTagName("td")[0];
+    		if (DeviceName) {
+      			var DeviceNameValue = DeviceName.textContent || DeviceName.innerText;
+      			if (DeviceNameValue.toLowerCase().indexOf(filter) > -1) {
+        			rows[i].style.display = "";
+      			} else {
+        			rows[i].style.display = "none";
+      			}
+    		}
+  		}
+	}	
+
+	//Display filter options
+	var FilterButton = document.getElementById("FilterButton");
+	var FilterOptions = document.getElementById("FilterOptions");
+
+	FilterButton.addEventListener("click", function() {
+		event.preventDefault();
+  		FilterOptions.style.display = (FilterOptions.style.display === "block") ? "none" : "block";
+	});
+	
+	//Filter option functionality
+		//Need to finish database implementation
+
+		
+	//Editing Device Information
+		//Need to finish database implementation
+	
+ </script>
+</body>
+</html>
