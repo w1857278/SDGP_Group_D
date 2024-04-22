@@ -356,7 +356,8 @@ div{
 
 .passResetLink {
     display: inline-block;
-    margin-left: 10px;
+    padding: 0px;
+    margin-left: 30px;
 }
 
 .checkbox-container {
@@ -364,11 +365,25 @@ div{
     vertical-align: middle;
 }
 
+.flex-signin{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.signup-path{
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 2px;
+    margin-left: 80px;
+}
+
+/*
 .backgroundBox{
     background-color: lightgrey !important;
     width: 300px !important;
     border: 15px solid green !important;
     padding: 50px !important;
     margin: 20px !important;
-/* !important overrides any primary design implementation to a CSS file */
-}
+/* !important overrides any primary design implementation to a CSS file } */
