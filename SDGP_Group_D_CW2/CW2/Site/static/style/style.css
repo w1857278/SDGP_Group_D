@@ -363,3 +363,12 @@ div{
     display: flex;
     vertical-align: middle;
 }
+
+.backgroundBox{
+    background-color: lightgrey !important;
+    width: 300px !important;
+    border: 15px solid green !important;
+    padding: 50px !important;
+    margin: 20px !important;
+/* !important overrides any primary design implementation to a CSS file */
+}
