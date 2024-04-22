@@ -379,11 +379,28 @@ div{
     margin-left: 80px;
 }
 
-/*
 .backgroundBox{
-    background-color: lightgrey !important;
+    background-color: rgb(255, 255, 255) !important;
     width: 300px !important;
-    border: 15px solid green !important;
     padding: 50px !important;
     margin: 20px !important;
-/* !important overrides any primary design implementation to a CSS file } */
+ /*!important overrides any primary design implementation to a CSS file */
+}
+
+.input-flex{
+    display: flex block;
+    margin-bottom: 5px;
+}
+
+.dob-flex{
+    display: flex inline-block;
+    padding: 30px;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.backtoLogin{
+    display: flex;
+    padding: 0px;
+    margin-left: 80px;
+}
