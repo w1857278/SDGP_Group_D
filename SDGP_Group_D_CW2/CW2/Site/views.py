@@ -1,12 +1,17 @@
 from django.http import HttpResponse
 from django.template import loader
 from django.shortcuts import redirect
-from .models import Device, DeviceDetail
+from .models import Device, DeviceDetail, Users, Booking
 from .forms import DeviceForm, DeviceDetailsForm
 
 def graph_page(request):
+  bookings = Booking.objects.all()
   template = loader.get_template('graph-page.html')
-  return HttpResponse(template.render())
+  context = {
+    'bookings': bookings
+  }
+
+  return HttpResponse(template.render(context,request))
 def index(request):
   template = loader.get_template('index.html')
   return HttpResponse(template.render())

@@ -4,7 +4,12 @@ class Users(models.Model):
     userDOB = models.DateField()
     userEmail = models.CharField(max_length = 200)
     userPassword = models.CharField(max_length = 200)
-    userPermissions = models.CharField(max_length = 200)
+    userPermissions = models.CharField(max_length = 200, blank=True)
+class Booking(models.Model):
+    userID = models.ForeignKey('Users', on_delete=models.CASCADE)
+    deviceID = models.ForeignKey('Device', on_delete=models.CASCADE)
+    bookingType = models.CharField(max_length=50)
+    dueDate = models.DateField()
 
 class Device(models.Model):
     deviceName = models.CharField(max_length=40)
