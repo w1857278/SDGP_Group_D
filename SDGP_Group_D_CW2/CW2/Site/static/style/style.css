@@ -390,6 +390,8 @@ div{
 .input-flex{
     display: flex block;
     margin-bottom: 5px;
+    padding: 10px;
+    margin-left: 20px;
 }
 
 .dob-flex{
@@ -399,8 +401,8 @@ div{
     margin: 10px;
 }
 
-.backtoLogin{
+.h4{
     display: flex;
     padding: 0px;
-    margin-left: 80px;
+    margin-left: 40px;
 }

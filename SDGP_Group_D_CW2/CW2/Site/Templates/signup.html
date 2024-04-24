@@ -16,13 +16,27 @@
                     <input type="date" id="birthday" name="birthday">
                     <input type="text" id="password1" name = "password1" placeholder = "Password"><br>
                     <input type="text" id="password2" name = "password2" placeholder = "Repeat password"><br>
-                </div>
-                    <input type="submit" value="Register">
                 </form>
-                <div class = "backtoLogin">
+                <input type="submit" value="Register" class="button-register {% if some_condition %}active{% endif %}">
+                <div class = "h4">
                     <h4> Back to login page </h4>
                 </div>
-            </div>    
+            </div>
+            <!-- JavaScript Styling added here to promote quick changes-->
+            <style>
+                .button-register {
+                    background-color: #007bff;
+                    color: #ffffff;
+                    border: none;
+                    padding: 10px 20px;
+                    cursor: pointer;
+                    transition: background-color 0.3s, color 0.3s;
+                }
+                .button-register:hover {
+                    background-color: #ffffff;
+                    color: #808080;
+                }
+            </style>    
         </body>
     </html>
 
