@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>Admin - View Device Instances</title>
+</head>
+<div class="container">
+    <h1 class="formHeader">Instances of {{ device.deviceName }}</h1>
+    <br>
+    {% if instances %}
+        {% for instance in instances %}
+        <div class="card">
+            <h5 class="card-header">{{ instance.deviceDetailName }}</h5>
+            <div class="card-body" style="font-weight:bold">
+              <p class="card-title">Serial Number: {{ instance.deviceSerial }}</p>
+              <p class="card-title">RAM: {{ instance.deviceRAM }}</p>
+              <p class="card-title">CPU: {{ instance.deviceCPU }}</p>
+              <p class="card-title">GPU: {{ instance.deviceGPU }}</p>
+            </div>
+            <div class="card-footer text-muted d-flex justify-content-between">
+                <div><a href="{% url 'update_instance' instance.id %} " ><button class="btn btn-primary" style="margin-left:-10px">Edit</button></a></div>
+                <div><a href="{% url 'delete_instance' instance.id %} "><button class="btn btn-danger" style="margin-right:-10px">Delete</button></a></div>
+            </div>
+        </div>     
+        <br>
+        {% endfor %}
+    {% else %}
+        <p style="color:white">No instances found for this device.</p>
+    {% endif %}
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'manage_inventory' %}"><button class="btn btn-light" id="backToMngInvBtn">Back to Inventory Management</button></a>
+    <br>
+    <br>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>Admin - Add Users</title>
+</head>
+<div class="container">
+    <h1 class="formHeader">Add User</h1>
+    <br>
+    <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username" style="color:white">Username:</label>
+                <input type="text" class="form-control" id="id_username" name="username" placeholder="Username" required autocomplete="username">
+            </div>
+            <div class="form-group">
+                <label for="id_first_name" style="color:white">First Name:</label>
+                <input type="text" class="form-control" id="id_first_name" name="first_name" placeholder="First name" required autocomplete="given-name">
+            </div>
+            <div class="form-group">
+                <label for="id_last_name" style="color:white">Last Name:</label>
+                <input type="text" class="form-control" id="id_last_name" name="last_name" placeholder="Last name" required autocomplete="family-name">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" id="id_email" name="email" placeholder="Email" required autocomplete="email">
+            </div>
+            <div class="form-group">
+                <label for="id_is_staff" style="color:white">Is Staff:</label>
+                <input type="checkbox" name="is_staff">
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="id_password1" name="password1" placeholder="Enter password" required>
+                <p class="HelpText">Your password can’t be too similar to your other personal information.<br>
+                    Your password must contain at least 8 characters.<br>
+                    Your password can’t be a commonly used password.<br>
+                    Your password can’t be entirely numeric.</p>
+            </div>
+            <div class="form-group">
+                <input type="password" class="form-control" id="id_password2" name="password2" placeholder="Confirm Password" required>
+            </div>
+            <br>
+        <button class="btn btn-success" type="submit" id="AddUserBtn">Add User</button>
+    </form>
+    <br>
+    <br>
+    <a href="{% url 'manage_users' %}"><button class="btn btn-light" id="backToMngInvBtn">Back to User Management</button></a>
+    <br>
+</div>
+{% endblock %}

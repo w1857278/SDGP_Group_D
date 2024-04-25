@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>Admin - Update User</title>
+</head>
+<div class="container">
+    <h1 class="formHeader">Edit User: {{ user.username }}</h1>
+    <br>
+    <form method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_username" style="color:white">Username:</label>
+                <input type="text" class="form-control" name="username" value="{{ user.username }}" required>
+            </div>
+            <div class="form-group">
+                <label for="id_first_name" style="color:white">First Name:</label>
+                <input type="text" class="form-control" name="first_name" placeholder="First Name" value="{{ user.first_name }}">
+            </div>
+            <div class="form-group">
+                <label for="id_last_name" style="color:white">Last Name:</label>
+                <input type="text" class="form-control" name="last_name" placeholder="Last Name" value="{{ user.last_name }}">
+            </div>
+            <div class="form-group">
+                <input type="email" class="form-control" name="email" placeholder="Email" value="{{ user.email }}" required>
+            </div>
+            <div class="form-group">
+                <label for="id_is_staff" style="color:white">Is Staff:</label>
+                <input type="checkbox" name="is_staff" {% if user.is_staff %} checked {% endif %}>
+            </div>
+            <br>
+        <button class="btn btn-success" type="submit" id="AddUserBtn">Update Details</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'manage_users' %}"><button class="btn btn-light" id="backToMngInvBtn">Back to User Management</button></a>
+    <br>
+    <br>
+</div>
+{% endblock %}

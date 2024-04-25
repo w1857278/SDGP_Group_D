@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>Admin - Add Device</title>
+</head>
+<div class="container">
+    <br>
+    <form method="POST" action="{% url 'add_device' %}">
+    {% csrf_token %}
+        <div class="form-group">
+            <div class="form-group">  
+                <input type="text" class="form-control" placeholder="Device Name" name="deviceName">
+            </div>
+             <label style="color:white">Select Device Type: </label>
+            <select selected class="form-control" name="deviceType">
+                <option>PC/Laptop</option>
+                <option>VR Headset</option>
+                <option>Camera/Sensors</option>
+                <option>PC Peripherals</option>
+                <option>Furniture</option>
+                <option>Tripod</option>
+                <option>Power/Cable</option>
+                <option>VR Controller</option>
+                <option>Phones/Tablets</option>
+                <option>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="number" min="1" class="form-control" placeholder="Quantity" name="deviceQuantity">
+        </div>
+        <div class="form-group">  
+            <input type="date" class="form-control" placeholder="Device Audit" name="deviceAudit">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Device Location" name="deviceLocation">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Device Status" name="deviceStatus">
+        </div>
+        <div class="form-group">
+            <textarea type="text" rows="3" class="form-control" placeholder="Device Comment(s)" name="deviceComments"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success" id="AddDeviceBtn">Add Device</button>
+    </form>
+    <br>
+    <a href="{% url 'add_devicedetails' %}"><button class="btn btn-primary" id="ToDevDetBtn">Add a Device Instance</button></a>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'manage_inventory' %}"><button class="btn btn-light" id="backToMngInvBtn">Back to Inventory Management</button></a>
+</div>
+{% endblock %}

@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block content %}
+<head>
+    <title>Admin - Update Device</title>
+</head>
+<div class="container">
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <div class="form-group">  
+                <input type="text" class="form-control" placeholder="Device Name" name="deviceName" value="{{ device.deviceName }}">
+            </div>
+             <label style="color:white">Select Device Type: </label>
+            <select selected class="form-control" name="deviceType">
+                <option {% if device.deviceType == 'PC/Laptop' %} selected {% endif %}>PC/Laptop</option>
+                <option {% if device.deviceType == 'VR Headset' %} selected {% endif %}>VR Headset</option>
+                <option {% if device.deviceType == 'Camera/Sensors' %} selected {% endif %}>Camera/Sensors</option>
+                <option {% if device.deviceType == 'PC Peripherals' %} selected {% endif %}>PC Peripherals</option>
+                <option {% if device.deviceType == 'Furniture' %} selected {% endif %}>Furniture</option>
+                <option {% if device.deviceType == 'Tripod' %} selected {% endif %}>Tripod</option>
+                <option {% if device.deviceType == 'Power Cable' %} selected {% endif %}>Power/Cable</option>
+                <option {% if device.deviceType == 'VR Controller' %} selected {% endif %}>VR Controller</option>
+                <option {% if device.deviceType == 'Phones/Tablets' %} selected {% endif %}>Phones/Tablets</option>
+                <option {% if device.deviceType == 'Other' %} selected {% endif %}>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <input type="number" min="1" class="form-control" placeholder="Quantity" name="deviceQuantity" value="{{ device.deviceQuantity }}">
+        </div>
+        <div class="form-group">  
+            <input type="date" class="form-control" placeholder="Device Audit" name="deviceAudit" value="{{ device.deviceAudit }}">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Device Location" name="deviceLocation" value="{{ device.deviceLocation }}">
+        </div>
+        <div class="form-group">
+            <input type="text" class="form-control" placeholder="Device Status" name="deviceStatus" value="{{ device.deviceStatus }}">
+        </div>
+        <div class="form-group">
+            <textarea type="text" rows="3" class="form-control" placeholder="Device Comment(s)" name="deviceComments" value="{{ device.deviceComments }}"></textarea>
+        </div>
+        <button type="submit" class="btn btn-success" id="UpdateDeviceBtn">Update Device</button>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <a href="{% url 'manage_inventory' %}"><button class="btn btn-light" id="backToMngInvBtn">Back to Inventory Management</button></a>
+    <br>
+</div>
+{% endblock %}
