@@ -1,8 +1,14 @@
 from django.db import models
 from django.contrib.auth.models import User
 
+class User(models.Model):
+    userName = models.CharField( max_length=50, default="User")
+    userDOB = models.DateField()
+    userEmail = models.CharField(max_length = 200)
+    userPassword = models.CharField(max_length = 200)
+    userPermissions = models.CharField(max_length = 200, blank=True)
 class Booking(models.Model):
-    userID = models.ForeignKey(User, on_delete=models.CASCADE)
+    userID = models.ForeignKey('User', on_delete=models.CASCADE)
     deviceID = models.ForeignKey('Device', on_delete=models.CASCADE)
     bookingType = models.CharField(max_length=50)
     dueDate = models.DateField()

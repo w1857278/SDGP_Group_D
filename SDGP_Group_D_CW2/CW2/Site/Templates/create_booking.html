@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/static/style/bootstrap/bootstrap-grid.css">
+    <link rel="stylesheet" href="/static/style/bootstrap/bootstrap-reboot.css">
+    <link rel="stylesheet" href="/static/style/bootstrap/bootstrap.css">
+    <link rel="stylesheet" href="/static/style/style.css">
+</head>
+<body>
+        
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <h1 class="text-center">View Bookings</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-10 col-md-12 m-auto">
+                <div class="menuContainer">
+                    
+                    <form action="" method="post">
+                        <label for="user">User</label>
+                        <select name="user" id="user">
+                            
+                            {% for u in user %}
+                                <option value="{{u.id}}">{{u.userName}}</option>
+                            {% endfor %}
+                        </select>
+                        <label for="device"></label>
+                        <select name="device" id="device">
+                            {% for d in devices %}
+                                <option value="{{d.id}}">{{d.deviceName}}</option>
+                            {% endfor %}
+                            
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
