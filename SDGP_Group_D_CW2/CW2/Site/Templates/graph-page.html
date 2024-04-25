@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,152 +11,35 @@
     <link rel="stylesheet" href="/static/style/style.css">
 </head>
 <body>
-    <div class="container head-charts">
-        <div class="row">
-            <div class="col-md-4 col-sm-12">
-                <div class="graph-container bar-graph" id="bar-graph">
-                    <div class="graph-container">
-                        <div class="row graph-container">
-                            <div class="bar-col" id="bar-1">
-                                <div class="bar" style="height:10%"></div>
-                                <label for="bar-1"></label>
-                            </div>
-                            <div class="bar-col" id="bar-2">
-                                <div class="bar" style="height:10%"></div>
-                                <label for="bar-2"></label>
-                            </div>
-                            <div class="bar-col" id="bar-3">
-                                <div class="bar" style="height:10%"></div>
-                                <label for="bar-3"></label>
-                            </div>
-                            <div class="bar-col" id="bar-4">
-                                <div class="bar" style="height:10%"></div>
-                                <label for="bar-4"></label>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <div class="pie-chart">
-                    <div class="graph-container">
-                        <div id="js-pie-chart"></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 col-sm-12">
-                <div class="pie-chart">
-                    <div class="graph-container">
-                        <div id="js-pie-chart"></div>
-                    </div>
-                </div>
+        
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col-12">
+                <h1 class="text-center">View Bookings</h1>
             </div>
         </div>
-    </div>
-    <div class="container">
         <div class="row">
             <div class="col-lg-10 col-md-12 m-auto">
                 <table class="m-auto">
                     <tr>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
-                        <th></th>
+                        <th>User Name</th>
+                        <th>Device Name</th>
+                        <th>Device Type</th>
+                        <th>Location</th>
+                        <th>Type of Booking</th>
+                        <th>Availability</th>
+                        <th>Overdue</th>
                     </tr>
+                    {%for b in bookings}
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{{ b. }}</td>
+                        <td>{{ b.deviceQuantity }}</td>
+                        <td>{{ b.deviceType }}</td>
+                        <td>{{ b.deviceAudit }}</td>
+                        <td>{{ b.deviceLocation }}</td>
+                        <td>{{ b.deviceStatus }}</td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    {%endfor}
                 </table>
             </div>
         </div>

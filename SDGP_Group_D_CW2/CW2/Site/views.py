@@ -1,14 +1,18 @@
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404, redirect, render
-from .models import Device, DeviceDetail
+from .models import Device, DeviceDetail, Booking
 from .forms import DeviceForm, DeviceDetailsForm, CustomUserCreationForm, CustomUserChangeForm
 from django.contrib.auth.models import User
 
 
 def graph_page(request):
+  bookings = Booking.objects.all()
   template = loader.get_template('graph-page.html')
-  return HttpResponse(template.render())
+  context = {
+    'bookings': bookings
+  }
+  return HttpResponse(template.render(context,request))
 def index(request):
   template = loader.get_template('index.html')
   return HttpResponse(template.render())

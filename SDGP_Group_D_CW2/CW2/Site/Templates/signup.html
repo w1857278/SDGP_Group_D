@@ -5,12 +5,38 @@
         </head>
         <body>
             <div class = "backgroundBox">
+                <div class = "input-flex">
                 <form action="/action_page.php">
                     <input type="text" id="fname" name="fname" placeholder = "First Name"><br>
-                    <input type="text" id="lname" name="lname" placeholder = "Last Name"><br><br>
-                    <input type="submit" value="Submit">
+                    <input type="text" id="lname" name="lname" placeholder = "Last Name"><br>
+                    <input type="text" id="email" name="email" placeholder = "Email"><br>
+                </div>
+                <div class = "dob-flex">
+                    <label for="birthday">Date of birth:</label>
+                    <input type="date" id="birthday" name="birthday">
+                    <input type="text" id="password1" name = "password1" placeholder = "Password"><br>
+                    <input type="text" id="password2" name = "password2" placeholder = "Repeat password"><br>
                 </form>
-            </div>    
+                <input type="submit" value="Register" class="button-register {% if some_condition %}active{% endif %}">
+                <div class = "h4">
+                    <h4> Back to login page </h4>
+                </div>
+            </div>
+            <!-- JavaScript Styling added here to promote quick changes-->
+            <style>
+                .button-register {
+                    background-color: #007bff;
+                    color: #ffffff;
+                    border: none;
+                    padding: 10px 20px;
+                    cursor: pointer;
+                    transition: background-color 0.3s, color 0.3s;
+                }
+                .button-register:hover {
+                    background-color: #ffffff;
+                    color: #808080;
+                }
+            </style>    
         </body>
     </html>
 

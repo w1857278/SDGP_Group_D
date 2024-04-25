@@ -123,17 +123,6 @@ button{
     border-radius: 5px;
     font-weight: bold;
 }
-#EditInfoButton{
-    font-weight:bold;
-    padding: 14px 100px;
-    margin-left:100px;
-}
-#RemoveDeviceButton, #RemoveUserButton{
-    font-weight:bold;
-    padding: 12px 80px;
-    margin-left: 150px;
-    margin-top:20px;
-}
 #AddDeviceButton, #AddUserButton{
     padding: 14px 100px;
     font-weight: bold;
@@ -359,9 +348,29 @@ div{
     margin-left: 80px;
 }
 .backgroundBox{
-    background-color: lightgrey !important;
+    background-color: rgb(255, 255, 255) !important;
     width: 300px !important;
-    border: 15px solid green !important;
     padding: 50px !important;
     margin: 20px !important;
-} 
+ /*!important overrides any primary design implementation to a CSS file */
+}
+
+.input-flex{
+    display: flex block;
+    margin-bottom: 5px;
+    padding: 10px;
+    margin-left: 20px;
+}
+
+.dob-flex{
+    display: flex inline-block;
+    padding: 30px;
+    justify-content: space-between;
+    margin: 10px;
+}
+
+.h4{
+    display: flex;
+    padding: 0px;
+    margin-left: 40px;
+}

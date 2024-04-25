@@ -1,5 +1,11 @@
 from django.db import models
 
+class Booking(models.Model):
+    userID = models.ForeignKey('Users', on_delete=models.CASCADE)
+    deviceID = models.ForeignKey('Device', on_delete=models.CASCADE)
+    bookingType = models.CharField(max_length=50)
+    dueDate = models.DateField()
+
 class Device(models.Model):
     deviceName = models.CharField(max_length=50)
     deviceType = models.CharField(max_length = 30)
@@ -12,7 +18,6 @@ class Device(models.Model):
     def __str__(self):
         return self.deviceName
         
-
 class DeviceDetail(models.Model):
     device = models.ForeignKey('Device', on_delete=models.CASCADE)
     deviceDetailName = models.CharField(max_length=50, default=" ")
