@@ -35,10 +35,8 @@ function toggleFilterOptions(event){
 
 //Filter option functionality
 function applyFilters() {
-    // Get filter options
     var alphabeticalFilter = document.getElementById("AlphabeticalFilter").checked;
     var staffFilter = document.getElementById("staffFilter").checked;
-    // Get table and table rows
     var table = document.getElementById("UserTable");
     var rows = table.getElementsByTagName("tr");
     // Array to store row data
@@ -56,7 +54,7 @@ function applyFilters() {
             return a.name.localeCompare(b.name); 
         });
     }
-    //Date Filter
+    //Role Filter
     if (staffFilter) {
         rowArray = rowArray.filter(function(row) {
             return row.is_staff === 'true';

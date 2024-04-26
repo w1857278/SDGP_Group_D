@@ -1,8 +1,10 @@
 from django.http import HttpResponse, JsonResponse
 from django.template import loader
-from django.shortcuts import redirect
-from .models import Device, DeviceDetail, Users, Booking
-from .forms import DeviceForm, DeviceDetailsForm
+from django.shortcuts import get_object_or_404, redirect, render
+from .models import Device, DeviceDetail, Booking
+from .forms import DeviceForm, DeviceDetailsForm, CustomUserCreationForm, CustomUserChangeForm
+from django.contrib.auth.models import User
+
 
 def graph_page(request):
   bookings = Booking.objects.all()
@@ -15,6 +17,11 @@ def graph_page(request):
 def index(request):
   template = loader.get_template('index.html')
   return HttpResponse(template.render())
+
+def create_booking(request):
+  user = User.objects.all()
+  devices = Device.objects.all()
+  return render(request, 'create_booking.html', {'devices':devices ,'user': user})
 
 ###########################################
 ###INVENTORY MANAGEMENT VIEWS###

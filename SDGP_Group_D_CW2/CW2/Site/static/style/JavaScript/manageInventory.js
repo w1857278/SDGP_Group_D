@@ -33,30 +33,28 @@ function toggleFilterOptions(event){
 
 //Equipment Count
 function toggleEquipCount(event) {
-  event.preventDefault();
-  var equipmentCountContainer = document.getElementById('equipmentCountContainer');
-  if(equipmentCountContainer.style.display === "none" || equipmentCountContainer.style.display === ""){
-      equipmentCountContainer.style.display = "block";
-  } else {
-      equipmentCountContainer.style.display = "none";
-  }
-  var table = document.getElementById('InventoryTable');
-  var rowCount = table.rows.length;
-  var totalQuantity = 0;
-
-  for (var i = 1; i < rowCount; i++) {
-      var row = table.rows[i];
-      var quantityCell = row.cells[2];
-      var quantity = parseInt(quantityCell.textContent.trim(), 10);
-      if (!isNaN(quantity)) {
-          totalQuantity += quantity;
-      }
-  }
-
-  // Display the total quantity
-  var equipmentCountDiv = document.getElementById('eqCountText');
-  equipmentCountDiv.textContent = 'Number of Devices: ' + totalQuantity;
-  
+    event.preventDefault();
+    var equipmentCountContainer = document.getElementById('equipmentCountContainer');
+    if(equipmentCountContainer.style.display === "none" || equipmentCountContainer.style.display === ""){
+        equipmentCountContainer.style.display = "block";
+    } else {
+        equipmentCountContainer.style.display = "none";
+    }
+    var table = document.getElementById('InventoryTable');
+    var rowCount = table.rows.length;
+    var totalQuantity = 0;
+    
+    for (var i = 1; i < rowCount; i++) {
+        var row = table.rows[i];
+        var quantityCell = row.cells[2];
+        var quantity = parseInt(quantityCell.textContent.trim(), 10);
+        if (!isNaN(quantity)) {
+            totalQuantity += quantity;
+        }
+    }
+    // Display the total quantity
+    var equipmentCountDiv = document.getElementById('eqCountText');
+    equipmentCountDiv.textContent = 'Number of Devices: ' + totalQuantity;
 }
 
 //Filter option functionality
@@ -141,5 +139,4 @@ function displayDeviceInfo(deviceId) {
           instanceList.appendChild(listItem);
       });
   })
-  .catch(error => console.error('Error fetching device instances:', error));
 }

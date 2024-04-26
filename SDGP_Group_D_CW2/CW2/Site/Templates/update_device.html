@@ -4,6 +4,7 @@
     <title>Admin - Update Device</title>
 </head>
 <div class="container">
+    <h1 class="formHeader">Update Device: {{ device.deviceName }}</h1>
     <form method="POST">
         {% csrf_token %}
         <div class="form-group">
