@@ -1,5 +1,4 @@
 
-
 body {
     min-width: 100vw;
     min-height: 100vh;
@@ -318,65 +317,6 @@ input[type=submit] {
     text-align: left;
     font-size: 12px;
     color: white;
-}
-label[for="signinBox"] {
-    color: white;
-    font-family: 'Courier New', Courier, monospace;
-}
-input[type=submit]:hover {
-    background-color: #607c8e;
-}
-/*div{
-    border-radius: 5px;
-    /*padding: 50px; could u maybe make this more specific than making all divs have this - breaks my pages */
-
-.passResetLink {
-    display: inline-block;
-    padding: 0px;
-    margin-left: 30px;
-}
-.checkbox-container {
-    display: flex;
-    vertical-align: middle;
-}
-.flex-signin{
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: space-between;
-    padding: 10px;
-}
-.signup-path{
-    display: flex;
-    flex-flow: row nowrap;
-    padding: 2px;
-    margin-left: 80px;
-}
-.backgroundBox{
-    background-color: rgb(255, 255, 255) !important;
-    width: 300px !important;
-    padding: 50px !important;
-    margin: 20px !important;
- /*!important overrides any primary design implementation to a CSS file */
-}
-
-.input-flex{
-    display: flex block;
-    margin-bottom: 5px;
-    padding: 10px;
-    margin-left: 20px;
-}
-
-.dob-flex{
-    display: flex inline-block;
-    padding: 30px;
-    justify-content: space-between;
-    margin: 10px;
-}
-
-.h4{
-    display: flex;
-    padding: 0px;
-    margin-left: 40px;
 }
 
 .bookingForm {

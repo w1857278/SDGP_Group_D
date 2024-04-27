@@ -1,34 +1,90 @@
 <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <title>Login Page</title>
-            <script src="signin.js"></script>
-            <link rel="stylesheet" href="../static/style/style.css">
-        </head>
-        <body>
-            <h3></h3>
-            <div>
-            <form action="/action_page.php">
-                <input type="text" id="name" name="Name" placeholder="Full Name">
-                <br>
-                <br>        
-                <input type="text" id="password" name="password" placeholder="Password">
-                <div class = "flex-signin">
+<head>
+    <meta charset="UTF-8">
+    <title>Login Page</title>
+    <script src="{% static 'signin.js' %}"></script>
+</head>
+<body>
+    <div class = "container-signin">
+    <div class="form signin">
+        <form action="{% url 'action_page' %}" method="post">
+            {% csrf_token %}
+            <input type="text" id="name" name="name" placeholder="Full Name">
+            <br><br>
+            <input type="password" id="password" name="password" placeholder="Password">
+            <div class="flex-signin">
                 <input type="checkbox" id="signinBox" name="signinBox" value="signinBox">
-                    <label for="signinBox">Stay signed in?</label><br>
-                    <div class = "passResetLink">
-                        <label for="passResetLink">Forgot password?</label>
-                    </div>
+                <label for="signinBox">Stay signed in?</label><br>
+                <div class="passResetLink">
+                    <a href="{% url 'password_reset' %}">Forgot password?</a>
                 </div>
-                <br>
-                </select>            
-                <input type="submit" value="Login">
-            </form>
-            <div class = "signup-path">
-                <label for = "signup-path">No account? Sign up here!</label>
             </div>
-            </div>
-        </body>
+            <br>
+            <input type="submit" value="Login">
+        </form>
+        <div class="signup-path">
+            <a href="{% url 'signup' %}">No account? Sign up here!</a>
+        </div>
+    </div>
+    </div>
+    <style>
+        body {
+            min-width: 100vw;
+            min-height: 100vh;
+            background-image: linear-gradient(#030940, #5a748e);
+            overflow-x: hidden;
+        }
+
+        .container-signin{
+            width: 100%;
+            padding: 20px;
+            max-width: 400px;
+            position: center;
+            transform: translate(170%, 75%);
+        }
+
+        .form.signin {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .form.signin form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .form.signin input[type="text"],
+        .form.signin input[type="password"],
+        .form.signin input[type="submit"]{
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+        }
+
+        .form.signin .flex-signin {
+            display: flex;
+            align-items: center;
+        }
+
+        .form.signin .flex-signin label {
+            margin-left: 5px;
+        }
+
+        .form.signin .signup-path {
+            margin-top: 10px;
+            text-align: center;
+        }
+    </style> 
+    <!-- CSS external file overwrote with mine and had to remake and therefore I'm making it here
+        p.s this happened 4 days before the due date and had no time to remake from 0 -->
+</body>
 </html>
+
 <!-- https://www.w3schools.com/css/tryit.asp?filename=trycss_forms -->
 <!-- Edited by Elias using w3schools as referance -->    
