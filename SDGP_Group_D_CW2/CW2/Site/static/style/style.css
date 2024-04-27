@@ -326,10 +326,10 @@ label[for="signinBox"] {
 input[type=submit]:hover {
     background-color: #607c8e;
 }
-div{
+/*div{
     border-radius: 5px;
     /*padding: 50px; could u maybe make this more specific than making all divs have this - breaks my pages */
-}
+
 .passResetLink {
     display: inline-block;
     padding: 0px;
