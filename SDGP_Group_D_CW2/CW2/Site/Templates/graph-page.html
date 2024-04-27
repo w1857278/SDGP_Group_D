@@ -1,26 +1,14 @@
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="/static/style/bootstrap/bootstrap-grid.css">
-    <link rel="stylesheet" href="/static/style/bootstrap/bootstrap-reboot.css">
-    <link rel="stylesheet" href="/static/style/bootstrap/bootstrap.css">
-    <link rel="stylesheet" href="/static/style/style.css">
-</head>
-<body>
-        
-    <div class="container">
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid">
         <div class="row pt-5">
             <div class="col-12">
                 <h1 class="text-center">View Bookings</h1>
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-10 col-md-12 m-auto">
-                <table class="m-auto">
+            <div class="col-lg-12 col-md-12 m-auto pt-4">
+                <table class="bookingTable m-auto">
                     <tr>
                         <th>User Name</th>
                         <th>Device Name</th>
@@ -29,20 +17,37 @@
                         <th>Type of Booking</th>
                         <th>Availability</th>
                         <th>Overdue</th>
-                    </tr>
-                    {%for b in bookings}
+                        <th>Edit/Delete</th>
+                    </tr> 
+                    {%for b in booking %}
                     <tr>
-                        <td>{{ b. }}</td>
-                        <td>{{ b.deviceQuantity }}</td>
-                        <td>{{ b.deviceType }}</td>
-                        <td>{{ b.deviceAudit }}</td>
-                        <td>{{ b.deviceLocation }}</td>
-                        <td>{{ b.deviceStatus }}</td>
+                        
+                        <td>{{ b.userID.username }}</td>
+                        <td>{{ b.deviceID.deviceName }}</td>
+                        <td>{{ b.deviceID.deviceType }}</td>
+                        <td>{{ b.deviceID.deviceLocation}}</td>
+                        <td>{{ b.bookingType}}</td>
+                        <td>{{ b.deviceID.deviceStatus}}</td>
+                        <td>{{ b.dueDate}}</td>
+                        <td><div class="d-flex edit-delete">
+                        
+                            <form method="POST" action="{% url 'edit_booking' b.id %}">
+                                {% csrf_token %}
+                                <button type="submit">Edit</button>
+                            </form>
+                            <form method="POST" action="{% url 'delete_booking' b.id %}">
+                                {% csrf_token %}
+                                <button type="submit">Delete</button>
+                            </form>
+                            
+                        </div></td>
                     </tr>
-                    {%endfor}
+                    {%endfor%}
                 </table>
             </div>
         </div>
+        <div class="row pt-5 justify-content-center">
+            <a href="{% url 'create_booking' %}"><button>Create New Booking</button></a>
+        </div>
     </div>
-</body>
-</html>
+{%endblock%}

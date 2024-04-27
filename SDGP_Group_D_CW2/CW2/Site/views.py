@@ -2,15 +2,15 @@ from django.http import HttpResponse, JsonResponse
 from django.template import loader
 from django.shortcuts import get_object_or_404, redirect, render
 from .models import Device, DeviceDetail, Booking
-from .forms import DeviceForm, DeviceDetailsForm, CustomUserCreationForm, CustomUserChangeForm
+from .forms import DeviceForm, DeviceDetailsForm, CustomUserCreationForm, CustomUserChangeForm, BookingForm
 from django.contrib.auth.models import User
 
 
 def graph_page(request):
-  bookings = Booking.objects.all()
+  bookings = Booking.objects.select_related('userID', 'deviceID').all()
   template = loader.get_template('graph-page.html')
   context = {
-    'bookings': bookings
+    'booking': bookings
   }
   return HttpResponse(template.render(context,request))
 
@@ -18,11 +18,36 @@ def index(request):
   template = loader.get_template('index.html')
   return HttpResponse(template.render())
 
-def create_booking(request):
-  user = User.objects.all()
-  devices = Device.objects.all()
-  return render(request, 'create_booking.html', {'devices':devices ,'user': user})
+def edit_booking(request, booking_id):
+  booking = get_object_or_404(Booking,pk=booking_id)
+  form = BookingForm(request.POST or None, instance=booking)
+  if form.is_valid():
+    form.save()
+    return redirect('graph_page')
+  else:
+    form = BookingForm(instance=booking)
+  return render(request,'edit_booking.html',{'booking':booking, 'form':form})
 
+def delete_booking(request, booking_id):
+    if request.method == 'POST':
+        booking = Booking.objects.get(pk=booking_id)
+        booking.delete()
+    return redirect('graph_page')
+
+def create_booking(request):
+    if request.method == 'POST':
+        form = BookingForm(request.POST)
+        if form.is_valid():
+            booking = form.save(commit=False)
+            booking.device = form.cleaned_data['deviceID']
+            booking.save()
+            return redirect('confirm_booking') 
+    else:
+        form = BookingForm()
+    return render(request, 'create_booking.html', {'form': form})
+def confirm_booking(request):
+  template = loader.get_template('confirm_booking.html')
+  return HttpResponse(template.render())
 ###########################################
 ###INVENTORY MANAGEMENT VIEWS###
 #Manage Inventory

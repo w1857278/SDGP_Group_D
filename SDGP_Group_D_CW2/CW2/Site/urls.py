@@ -17,5 +17,8 @@ urlpatterns = [
     path('manage_users/add_user', views.add_user, name='add_user'),
     path('manage_users/update_user/<int:user_id>/', views.update_user, name='update_user'),
     path('manage_users/delete_user/<int:user_id>/', views.delete_user, name='delete_user'),
-    path('create_booking/', views.create_booking, name='create_booking')
+    path('create_booking/', views.create_booking, name='create_booking'),
+    path('graph_page/<int:booking_id>/edit/', views.edit_booking, name='edit_booking'),
+    path('graph_page/<int:booking_id>/delete/', views.delete_booking, name='delete_booking'),
+    path('confirm_booking', views.confirm_booking, name='confirm_booking')
 ]

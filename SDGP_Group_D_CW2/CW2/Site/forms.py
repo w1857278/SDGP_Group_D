@@ -1,5 +1,5 @@
 from django import forms
-from .models import Device, DeviceDetail
+from .models import Device, DeviceDetail, Booking
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from django.contrib.auth.models import User
 
@@ -13,6 +13,14 @@ class DeviceDetailsForm(forms.ModelForm):
     class Meta:
         model = DeviceDetail
         fields = ['device', 'deviceDetailName', 'deviceSerial', 'deviceRAM', 'deviceCPU','deviceGPU']
+
+class BookingForm(forms.ModelForm):
+    userID = forms.ModelChoiceField(queryset=User.objects.all(), to_field_name='id')
+    deviceID = forms.ModelChoiceField(queryset=Device.objects.all(), to_field_name='id')
+    dueDate = forms.DateField(widget=forms.DateInput(attrs={'type': 'date'}))
+    class Meta:
+        model = Booking
+        fields = ['userID', 'deviceID', 'bookingType', 'dueDate']
 
 class CustomUserCreationForm(UserCreationForm):
     first_name = forms.CharField(max_length=30)
