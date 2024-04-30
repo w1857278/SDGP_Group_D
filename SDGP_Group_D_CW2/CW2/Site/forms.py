@@ -41,4 +41,23 @@ class CustomUserChangeForm(UserChangeForm):
     class Meta:
         model = User
         fields = ('username', 'is_staff', 'first_name', 'last_name', 'email')
+     
+class SignupForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30)
+    last_name = forms.CharField(max_length=30)
+    email = forms.EmailField(max_length=254)
+    is_staff = forms.BooleanField(required=False)
+    
+    class Meta:
+        model = User
+        fields = ('username', 'is_staff', 'first_name', 'last_name', 'email', 'password1', 'password2')
         
+class LoginForm(UserCreationForm):
+    first_name = forms.CharField(max_length=30)
+    last_name = forms.CharField(max_length=30)
+    email = forms.EmailField(max_length=254)
+    is_staff = forms.BooleanField(required=False)
+    
+    class Meta:
+        model = User
+        fields = ('username', 'first_name', 'last_name', 'password1', 'password2')        

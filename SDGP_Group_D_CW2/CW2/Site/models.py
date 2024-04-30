@@ -32,3 +32,11 @@ class DeviceDetail(models.Model):
 
     def __str__(self):
         return Device.deviceName + ' - Serial: ' + self.deviceSerial
+    
+class User(models.Model):
+    email = models.EmailField(('email address'), blank=False)
+    password = models.CharField(max_length=20, unique=True)
+    
+    def __str__(self):
+        return self.fname + 'Name: ' + self.lname
+    
