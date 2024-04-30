@@ -10,17 +10,21 @@
         <form action="{% url 'action_page' %}" method="post">
             {% csrf_token %}
             <input type="text" id="name" name="name" placeholder="Full Name">
-            <br><br>
+            <br>
             <input type="password" id="password" name="password" placeholder="Password">
             <div class="flex-signin">
-                <input type="checkbox" id="signinBox" name="signinBox" value="signinBox">
-                <label for="signinBox">Stay signed in?</label><br>
-                <div class="passResetLink">
-                    <a href="{% url 'password_reset' %}">Forgot password?</a>
-                </div>
+                <div class = "flex-text">
+                    <div class = "spacebetween">
+                        <input type="checkbox" id="signinBox" name="signinBox" value="signinBox">
+                        <label for="signinBox">Stay signed in?</label><br>
+                    </div>
+                    <div class="passResetLink">
+                        <a href="{% url 'password_reset' %}">Forgot password?</a>
+                    </div>
+                </div>  
             </div>
             <br>
-            <input type="submit" value="Login">
+            <input type="submit" value="Login" class = "signinButton">
         </form>
         <div class="signup-path">
             <a href="{% url 'signup' %}">No account? Sign up here!</a>
@@ -35,12 +39,18 @@
             overflow-x: hidden;
         }
 
+        .flex-text{
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: space-between;
+        }
+
         .container-signin{
             width: 100%;
             padding: 20px;
             max-width: 400px;
             position: center;
-            transform: translate(170%, 75%);
+            margin: auto;
         }
 
         .form.signin {
@@ -65,20 +75,46 @@
             border-radius: 5px;
             border: 1px solid #ccc;
             box-sizing: border-box;
+            font-size: 16px;
         }
 
         .form.signin .flex-signin {
             display: flex;
             align-items: center;
+            margin-top: 20px;
+            justify-content: space-between;
         }
 
-        .form.signin .flex-signin label {
+        .form.signin {
             margin-left: 5px;
         }
+        
+        .flex-signin label {
+            margin-left: 5px;
+            text-align: center;
+        }
 
-        .form.signin .signup-path {
+        .form.signin {
             margin-top: 10px;
             text-align: center;
+        }
+
+        .signup-path {
+            margin-top: 10px;
+            text-align: center;
+        }
+        
+        .signinButton {
+            background-color: #007bff;
+            color: #ffffff;
+            transition: background-color 0.3s, color 0.3s;
+            cursor: pointer;
+            border: none;
+            padding: 10px 20px;
+        }
+        .signinButton:hover {
+            background-color: #ffffff;
+            color: #808080;
         }
     </style> 
     <!-- CSS external file overwrote with mine and had to remake and therefore I'm making it here

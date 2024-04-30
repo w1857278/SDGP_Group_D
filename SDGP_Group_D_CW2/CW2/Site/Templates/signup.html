@@ -1,29 +1,68 @@
 <html lang="en">
-        <head>
-            <meta charset="UTF-8">
-            <link rel="stylesheet" href="../static/style/style.css">
-        </head>
+    <head>
+        <meta charset="UTF-8">
+    </head>
         <body>
             <div class = "backgroundBox">
                 <div class = "input-flex">
                 <form action="/action_page.php">
                     <input type="text" id="fname" name="fname" placeholder = "First Name"><br>
-                    <input type="text" id="lname" name="lname" placeholder = "Last Name"><br>
+                    <input type="text" id="lname" name="lname" placeholder = "Last Name"><br><br>
                     <input type="text" id="email" name="email" placeholder = "Email"><br>
                 </div>
                 <div class = "dob-flex">
                     <label for="birthday">Date of birth:</label>
-                    <input type="date" id="birthday" name="birthday">
+                    <input type="date" id="birthday" name="birthday"><br><br>
                     <input type="text" id="password1" name = "password1" placeholder = "Password"><br>
                     <input type="text" id="password2" name = "password2" placeholder = "Repeat password"><br>
                 </form>
+                <br>
                 <input type="submit" value="Register" class="button-register {% if some_condition %}active{% endif %}">
-                <div class = "h4">
-                    <h4> Back to login page </h4>
-                </div>
+                <br>
+                <br>
+                <hr>
+                <br>
+                <a href="{% url 'signin.html' %}">Back to login page</a>
             </div>
             <!-- JavaScript Styling added here to promote quick changes-->
-            <style>
+            <style>            
+                body {
+                    min-width: 100vw;
+                    min-height: 100vh;
+                    background-image: linear-gradient(#030940, #5a748e);
+                    overflow-x: hidden;
+                }
+                .dob-flex{
+                    position: center;
+                    text-align: center;
+                }
+
+                .input-flex input[type="text"],
+                .dob-flex input[type="date"],
+                .dob-flex input[type="text"] {
+                    width: calc(100% - 20px);
+                    padding: 10px;
+                    margin: 5px 0;
+                    border: 1px solid #ccc;
+                    border-radius: 5px;
+                    box-sizing: border-box;
+                    font-size: 16px;
+                }
+
+                .input-flex{
+                    positon: center;
+                    text-align: center;
+                }
+                .backgroundBox{
+                    background-color: #f2f2f2;
+                    padding: 20px;
+                    border-radius: 10px;
+                    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                    max-width: 400px;
+                    width: 100%;
+                    position: center;
+                    margin: auto;
+                }
                 .button-register {
                     background-color: #007bff;
                     color: #ffffff;
@@ -31,14 +70,26 @@
                     cursor: pointer;
                     border: none;
                     padding: 10px 20px;
+                    width: 95%;
+                    border-radius: 5px;
                 }
                 .button-register:hover {
                     background-color: #ffffff;
                     color: #808080;
                 }
+                
+                .input-flex{
+                    text-align: center;
+                }
+
+                .dob-flex{
+                    text-align: center;
+                }
+
+                <!-- CSS Added here explained why on signin page-->
             </style>    
         </body>
-    </html>
+</html>
 
 <!-- https://www.w3schools.com/html/html_form_input_types.asp -->
 <!-- Edited by Elias using w3schools as referance -->     
