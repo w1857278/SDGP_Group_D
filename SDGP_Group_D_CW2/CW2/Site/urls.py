@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from . import views
 
 urlpatterns = [
@@ -22,5 +22,5 @@ urlpatterns = [
     path('graph_page/<int:booking_id>/delete/', views.delete_booking, name='delete_booking'),
     path('confirm_booking', views.confirm_booking, name='confirm_booking'),
     path('signin/', views.signin, name = 'signin'),
-    path('signup/', views.signup, name = 'signup')
+    path('signup/', views.signup, name = 'signup'),
 ]
