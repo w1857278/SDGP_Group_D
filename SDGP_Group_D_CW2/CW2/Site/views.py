@@ -4,6 +4,9 @@ from django.shortcuts import get_object_or_404, redirect, render
 from .models import Device, DeviceDetail, Booking
 from .forms import DeviceForm, DeviceDetailsForm, CustomUserCreationForm, CustomUserChangeForm, BookingForm
 from django.contrib.auth.models import User
+from django.contrib.messages import constants as messages
+from django.contrib.auth import authenticate, login, logout
+from .forms import SignupForm, LoginForm
 
 
 def graph_page(request):
@@ -193,3 +196,31 @@ def delete_user(request, user_id):
   user.delete()
   return redirect('manage_users')
 ###########################################
+
+#SignIn redirect
+def signin(request):
+  if request.method == 'POST':
+    form = LoginForm(request.POST)
+    if form.is_valid():
+      username = form.cleaned_data['username']
+      password = form.cleaned_data['password']
+      user = authenticate(request, username = username, password = password)
+      if user:
+        login(request, user)
+        return redirect('index')
+  else:
+    form = LoginForm()
+  return render(request, 'signin.html', {'form': form})
+
+#https://medium.com/@devsumitg/django-auth-user-signup-and-login-7b424dae7fab <- Reference
+
+#SignUp redirect
+def signup(request):
+  if request.method == 'POST':
+    form = SignupForm(request.POST)
+    if form.is_valid():
+      form.save()
+      return redirect('index')
+  else:
+    form = SignupForm()
+  return render(request, 'signup.html', {'form': form})    

@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,8 +10,14 @@
 <body>
     <div class = "container-signin">
     <div class="form signin">
-        <form action="{% url 'action_page' %}" method="post">
+        {% for message in messages %}
+            <li{% if message.tags %} class ="{{ message.tags}}"{%endif%}>{{message}}</li>
+        {% endfor %}
+        <form action="" method="post">
             {% csrf_token %}
+            <div class = "headline">
+                <h2> Sign in </h2>
+            </div>
             <input type="text" id="name" name="name" placeholder="Full Name">
             <br>
             <input type="password" id="password" name="password" placeholder="Password">
@@ -19,15 +28,16 @@
                         <label for="signinBox">Stay signed in?</label><br>
                     </div>
                     <div class="passResetLink">
-                        <a href="{% url 'password_reset' %}">Forgot password?</a>
+                        {% comment %} <a href="{% url 'password_reset' %}">Forgot password?</a> {% endcomment %}
+                        <p> Forgot password </p>
                     </div>
                 </div>  
             </div>
             <br>
-            <input type="submit" value="Login" class = "signinButton">
+            <input type="submit" value="Login" class = "signinButton" href = "{% url 'login' %}">
         </form>
         <div class="signup-path">
-            <a href="{% url 'signup' %}">No account? Sign up here!</a>
+            <a href="{% url 'signup' %}">Sign up here!</a>
         </div>
     </div>
     </div>
@@ -45,12 +55,21 @@
             justify-content: space-between;
         }
 
+        .headline{
+            margin-right: 160px;
+        }
+
         .container-signin{
             width: 100%;
             padding: 20px;
             max-width: 400px;
-            position: center;
+            position: relative;
             margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            flex-shrink: 0;
         }
 
         .form.signin {
@@ -121,6 +140,6 @@
         p.s this happened 4 days before the due date and had no time to remake from 0 -->
 </body>
 </html>
-
+{%endblock%}
 <!-- https://www.w3schools.com/css/tryit.asp?filename=trycss_forms -->
 <!-- Edited by Elias using w3schools as referance -->    
