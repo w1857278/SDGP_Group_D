@@ -1,0 +1,88 @@
+ {% extends 'base.html'%} 
+ {%block content%}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="container-fluid">
+        <header class="py-4 mb-3 bg-primary text-white text-center">
+            <h1>Dashboard</h1>
+        </header>
+
+        <div class="row text-center">
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                    
+                    
+                        <h5 class="card-title">Manage Users</h5>
+                        <p class="card-text">Add, remove, or modify user details</p>
+                        <a href="{%url, 'ManageUsers'%}" class="btn btn-primary">Manage</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                        
+                        <h5 class="card-title">Manage Inventory</h5>
+                        <p class="card-text">View and update inventory items</p>
+                        <a href="{%url,'ManageInventory'%}" class="btn btn-primary">Manage</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-4">
+                <div class="card h-100">
+                    <div class="card-body">
+                       
+                        <h5 class="card-title">Manage Bookings</h5>
+                        <p class="card-text">Schedule and track bookings</p>
+                        <a href="{% url'edit_booking'%}" class="btn btn-primary">Manage</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<style>
+
+  body {
+      font-family: Arial, sans-serif; 
+      background-color: #f8f9fa; 
+      margin: 0; 
+      padding: 0; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+  }
+
+  .card {
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+      border: 1px solid #dee2e6; 
+      border-radius: 8px; 
+      width: 300px; 
+      margin: 20px; 
+      padding: 20px; 
+      background-color: white; 
+      text-align: center; 
+  }
+
+  /* Ensures the content inside the card is centered vertically and horizontally */
+  .card-content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100%;
+  }
+</style>
+</style>
+
+
+{% endblock %}
