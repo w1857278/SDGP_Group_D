@@ -1,0 +1,73 @@
+{%extends 'base.html'%}
+{%block content%}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    
+    <link rel="stylesheet" href="../static/style/style.css "> 
+    <body>
+      <div class="modal show" tabindex="-1" role="dialog" style="display: block; background-color: rgba(0,0,0,0.5);">
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-body text-center">
+                      <h5 class="modal-title">Booking Denied</h5>
+                      <p>Booking Denied for: <span id="deviceInfo">device information</span></p>
+                      <p>On the date of: <span id="deviceIssueDate">issue date</span></p>
+                      <button type="button" class="btn btn-primary" onclick=""href={% url , 'create_booking' %}">Return to create a new booking </button>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </body>
+  
+</body>
+<style>
+    body {
+        height: 100%; 
+        margin: 0; 
+        display: flex;
+        justify-content: center; 
+        align-items: center; 
+        font-family: Arial, sans-serif; 
+        background-color: rgba(0,0,0,0.5); 
+    }
+  
+    .modal-dialog {
+        width: auto; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+    }
+  
+    .modal-content {
+        padding: 20px; 
+        background-color: #fff; 
+        border-radius: 8px; 
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3); 
+        border: 1px solid #ccc; 
+        text-align: center; 
+    }
+  
+    .modal-body {
+        padding: 20px; /* Additional padding within the modal body for spacing */
+    }
+  
+    button {
+        margin-top: 20px; 
+        padding: 10px 20px; 
+        font-size: 16px; 
+        color: #fff; 
+        background-color: #007bff; 
+        border: none; 
+        border-radius: 5px; 
+        cursor: pointer; 
+    }
+  
+    button:hover {
+        background-color: #0056b3;
+    }
+  </style>
+
+{% endblock %}
