@@ -102,6 +102,9 @@ h3{
     padding-top: 5px;
     padding-bottom: 5px;
 }
+#InfoBox h3{
+    color:black;
+}
 #InfoBox{
     margin-left: 70px;
     background-color: #ffffff;
@@ -278,7 +281,7 @@ input[type=submit] {
 }
 #SignUpBtn{
     border: 2px solid white;
-    margin-left: 400px;
+    margin-left: 480px;
     padding: 7px;
     margin-top:-7px;
 }
@@ -358,4 +361,33 @@ input[type=submit] {
 .linkBox img {
     width: 250px;
     margin: auto;
+}
+.content {
+    display: flex;
+    justify-content: center;
+    height: 600px;
+}
+.card {
+    background-color: white;
+    padding: 20px;
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 350px;
+    border-radius: 10px;
+}
+.image-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+.image-rectangle {
+    width: 150px;
+    height: 200px;
+    background-color: #728699;
+    overflow: hidden;
+}
+.image-rectangle img {
+    width: 100%;
+    height: auto;
 }

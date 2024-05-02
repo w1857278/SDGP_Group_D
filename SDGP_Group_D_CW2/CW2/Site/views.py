@@ -21,6 +21,14 @@ def index(request):
   template = loader.get_template('index.html')
   return HttpResponse(template.render())
 
+def manage_select(request):
+  template = loader.get_template('manageSelect.html')
+  return HttpResponse(template.render())
+
+def user_bookingSelect(request):
+  template = loader.get_template('userBooking.html')
+  return HttpResponse(template.render())
+
 def edit_booking(request, booking_id):
   booking = get_object_or_404(Booking,pk=booking_id)
   form = BookingForm(request.POST or None, instance=booking)

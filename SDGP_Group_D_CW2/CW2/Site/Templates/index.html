@@ -1,34 +1,38 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
-        
+    <head>
+        <title>Home</title>
+    </head>
     <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-lg-10 text-center">
-                <h1>SDGP Group D Inventory Management System</h1>
-            </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center" style="color:white">
+                <h1>Welcome to UOW<br>
+                Inventory Management System</h1>
         </div>
-    </div>
-    <div class="container pt-5 pb-2">
-        <div class="row justify-content-center">
-            <div class="col-12 text-center">
-                <h2>What would you like to do?</h2>
-            </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center" style="color:white">
+            <h5>To access site features, please <a href="{% url 'signin' %}">Log in</a></h5><!-- Add url for sign in page -->
         </div>
-        <div class="row justify-content-center">
-            <a href="{%url 'manage_users'%}" class="col-lg-4 col-md-5 col-sm-12 linkBox">
-                <img src="{% static 'style/images/profile-svgrepo-com.svg' %}" alt="">
-                <h4>Manage Users</h4>
-            </a>
-            <a href="{%url 'graph_page'%}" class="col-lg-4 col-md-5 col-sm-12 linkBox">
-                <img src="{% static 'style/images/calendar-alt-svgrepo-com.svg' %}" alt="">
-                <h4>Manage Bookings</h4>
-            </a>
-            <a href="{%url 'manage_inventory'%}" class="col-lg-4 col-md-5 col-sm-12 linkBox">
-                <img src="{% static 'style/images/device-desktop-svgrepo-com.svg' %}" alt="">
-                <h4>Manage Devices</h4>
-            </a>
-            
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div class="row justify-content-center" style="color:white">
+            <h4>Group D - Pages made by:<br>
+            Callum Sharp<br>
+            Abdullahi Mohamoud<br>
+            Christopher Hoggarth<br>
+            Emmanuel Cosma<br>
+            Elias Avram</h4>
         </div>
     </div>
 {%endblock%}

@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <head>
+        <title>Admin - Select Manage Operation</title>
+    </head>    
+    <div class="container">
+        <br>
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center" >
+                <h1>SDGP Group D Inventory Management System</h1>
+            </div>
+        </div>
+    </div>
+    <div class="container pt-5 pb-2">
+        <div class="row justify-content-center">
+            <div class="col-12 text-center" >
+                <h2>What would you like to do?</h2>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="row justify-content-center">
+            <a href="{%url 'manage_users'%}" class="col-lg-4 col-md-5 col-sm-12 linkBox">
+                <img src="{% static 'style/images/profile-svgrepo-com.svg' %}" alt="" width="150" height="150">
+                <h4>Manage Users</h4>
+            </a>
+            <a href="{%url 'graph_page'%}" class="col-lg-4 col-md-5 col-sm-12 linkBox">
+                <img src="{% static 'style/images/calendar-alt-svgrepo-com.svg' %}" alt="" width="150" height="150">
+                <h4>Manage Bookings</h4>
+            </a>
+            <a href="{%url 'manage_inventory'%}" class="col-lg-4 col-md-5 col-sm-12 linkBox">
+                <img src="{% static 'style/images/device-desktop-svgrepo-com.svg' %}" alt="" width="150" height="150">
+                <h4>Manage Devices</h4>
+            </a>
+        </div>
+    </div>
+{%endblock%}

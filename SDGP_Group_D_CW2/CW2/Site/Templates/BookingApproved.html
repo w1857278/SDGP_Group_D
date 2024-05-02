@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <title>Booking approved</title>
+</head>
+<body>
+    <div class="content">
+        <div class="card">
+            <br>
+            <h3 style="font-size: 16px; font-weight: bold; margin: 5px;">Booking Approved for: deviceInfo</h3>
+            <h3 style="font-size: 16px; font-weight: bold; margin: 5px;">On the date of: deviceIssueDate</h3>
+            <br><br>
+            <h3 style="font-size: 16px; font-weight: bold; margin: 5px;">Device booked on the name of: userName</h3>
+            <h3 style="font-size: 16px; font-weight: bold; margin: 5px;">Return date by: deviceReturnDate</h3>
+            <button style="background-color: #728699; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 205px;">Return to Homepage</button>
+        </div>
+    </div>
+{% endblock %}

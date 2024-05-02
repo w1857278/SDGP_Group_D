@@ -4,6 +4,9 @@ from . import views
 urlpatterns = [
     path('graph_page/', views.graph_page, name='graph_page'),
     path('', views.index, name='index'),
+    path('signup', views.signup, name='signup'),
+    path('signin', views.signin, name='signin'),
+    path('manage_select', views.manage_select, name='manage_select'),
     path('manage_inventory/', views.manage_inventory, name='manage_inventory'),
     path('manage_inventory/add_device', views.add_device, name='add_device'),
     path('manage_inventory/add_devicedetails', views.add_devicedetails, name='add_devicedetails'),
@@ -20,5 +23,6 @@ urlpatterns = [
     path('create_booking/', views.create_booking, name='create_booking'),
     path('graph_page/<int:booking_id>/edit/', views.edit_booking, name='edit_booking'),
     path('graph_page/<int:booking_id>/delete/', views.delete_booking, name='delete_booking'),
-    path('confirm_booking', views.confirm_booking, name='confirm_booking')
+    path('confirm_booking', views.confirm_booking, name='confirm_booking'),
+    path('user_bookingSelect', views.user_bookingSelect, name='user_bookingSelect'),
 ]

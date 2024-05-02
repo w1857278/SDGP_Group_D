@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<head>
+    <title>User - Select Booking Operation</title>
+</head>
+<body>
+    <br>
+    <br>
+    <div class="content">
+        <div class="card">
+            <br>
+            <h2 style="color: black">I would like to...</h2>
+            <div class="image-container">
+                <div class="image-rectangle">
+                    <img src="../static/style/images/pc_pic.png" alt="Image 1" style="width: 100px; height: auto; margin-top: 30px;">
+                    <p style="color: white; text-align: center; font-weight: bold;">Book a Device</p>
+                </div>
+                <div class="image-rectangle">
+                    <img src="../static/style/images/return_device.png" alt="Image 1" style="width: 90px; height: auto; margin-top: 30px;">
+                    <p style="color: white; text-align: center; font-weight: bold;">Return a Device</p>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <button style="background-color: #728699; color: white; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; margin-top: 80px;">
+                <a href="{% url 'index' %}" style="color: white; padding-left:60px;">Return to Homepage</a>
+            </button>
+        </div>
+    </div>
+{% endblock %}

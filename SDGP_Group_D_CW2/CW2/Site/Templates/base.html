@@ -22,11 +22,10 @@
       <nav>
         <ul class = "navigation">
           <li><a href = "{% url 'index' %}">Home</a></li>
-          <li><a href = " ">Dashboard</a></li>
-          <li><a href = "{%url 'manage_users'%} ">Manage</a></li>
-          <li><a href = "{%url 'manage_inventory'%} ">Inventory</a></li>			
-          <li><a href = "{%url 'graph_page'%} ">Booking</a></li>
-          <li><a href = " " id="SignUpBtn">Sign In</a></li>
+          <li><a href = "{% url 'manage_select' %} ">Manage</a></li>
+          <li><a href = " ">Inventory</a></li>	<!-- This is for user view of inventory, but we dont have that page -->		
+          <li><a href = "{% url 'user_bookingSelect' %} ">Booking</a></li>
+          <li><a href = "{% url 'signin' %} " id="SignUpBtn">Sign In</a></li>
         </ul>
       </nav>
     </div>
