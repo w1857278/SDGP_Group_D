@@ -13,8 +13,10 @@
             <h2 style="color: black">I would like to...</h2>
             <div class="image-container">
                 <div class="image-rectangle">
-                    <img src="../static/style/images/pc_pic.png" alt="Image 1" style="width: 100px; height: auto; margin-top: 30px;">
-                    <p style="color: white; text-align: center; font-weight: bold;">Book a Device</p>
+                    <a href="{% url 'create_booking' %}">
+                        <img src="../static/style/images/pc_pic.png" alt="Image 1" style="width: 100px; height: auto; margin-top: 30px;">
+                        <p style="color: white; text-align: center; font-weight: bold;">Book a Device</p>
+                    </a>
                 </div>
                 <div class="image-rectangle">
                     <img src="../static/style/images/return_device.png" alt="Image 1" style="width: 90px; height: auto; margin-top: 30px;">
