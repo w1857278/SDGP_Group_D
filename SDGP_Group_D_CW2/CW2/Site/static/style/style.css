@@ -367,7 +367,7 @@ input[type=submit] {
     justify-content: center;
     height: 600px;
 }
-.card {
+.cardBlock {
     background-color: white;
     padding: 20px;
     text-align: center;
