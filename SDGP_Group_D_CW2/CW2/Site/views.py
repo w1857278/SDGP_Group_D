@@ -224,3 +224,16 @@ def signup(request):
   else:
     form = SignupForm()
   return render(request, 'signup.html', {'form': form})    
+
+# Booking denied page 
+def booking_denied(request, booking_id):
+    try:
+        booking = Booking.objects.get(id=booking_id, is_confirmed=False)
+        context = {
+            'device_info': booking.user.username,
+            'issue_date': booking.date,
+            
+        }
+        return render(request, 'bookingdenied.html', context)
+    except Booking.DoesNotExist:
+        return render(request, 'error_page.html', {'message': 'Booking not found.'})
