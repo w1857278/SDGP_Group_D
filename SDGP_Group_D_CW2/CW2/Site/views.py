@@ -220,8 +220,6 @@ def signin(request):
     form = LoginForm()
   return render(request, 'signin.html', {'form': form})
 
-#https://medium.com/@devsumitg/django-auth-user-signup-and-login-7b424dae7fab <- Reference
-
 #SignUp redirect
 def signup(request):
   if request.method == 'POST':
