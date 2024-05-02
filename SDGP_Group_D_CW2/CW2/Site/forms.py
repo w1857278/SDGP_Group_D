@@ -51,6 +51,7 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'is_staff', 'first_name', 'last_name', 'email', 'password1', 'password2')
+#https://docs.djangoproject.com/en/5.0/topics/forms/
         
 class LoginForm(UserCreationForm):
     first_name = forms.CharField(max_length=30)

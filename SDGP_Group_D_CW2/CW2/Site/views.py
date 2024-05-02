@@ -231,6 +231,8 @@ def signup(request):
     form = SignupForm()
   return render(request, 'signup.html', {'form': form})    
 
+#https://medium.com/@devsumitg/django-auth-user-signup-and-login-7b424dae7fab
+
 # Booking denied page 
 def booking_denied(request, booking_id):
     try:
